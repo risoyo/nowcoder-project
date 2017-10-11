@@ -1,0 +1,21 @@
+<html>
+<body>
+<pre>
+    $!{value1}
+    $!{value2} ## '!'为如果变量不存在,则强制为空
+    ${value3} ## 没有'!'的话,变量不存在,那么就解析成一个文本
+
+    colors:$!{color[0]}
+
+    #foreach($col in $color)  ## html中的foreach循环
+        This is color $!{foreach.index}: $col count. $!{foreach.count}  ##两个foreach的内置变量,index是下标,count是计数
+    #end
+
+    #set($title="nowcoder")
+    $!title
+
+    Parse:#parse("header.html") ## parse会解析本html中定义的一些变量之类的
+    Include:#include("header.html") ##include只是单纯的将另一个html接在下面
+</pre>
+</body>
+</html>
